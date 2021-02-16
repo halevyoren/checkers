@@ -1,0 +1,31 @@
+.square {
+  height: 10vh;
+  width: 10vh;
+  font-size: 8vh;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.blackSquare {
+  background: rgb(82, 204, 88);
+}
+
+.whiteSquare {
+  background: rgb(233, 223, 223);
+}
+
+.white {
+  color: white;
+}
+
+.red {
+  color: red;
+}
+
+.ready-to-move,
+.clicked {
+  background: blue;
+}
