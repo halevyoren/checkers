@@ -6,19 +6,15 @@ import "./Square.css";
 const Square = ({ params, squareColor, onClick }) => {
   var color = "";
   var clicked = "";
-  var readyToMove = "";
   if (params) {
     color = params.pawnColor;
     clicked = params.clicked;
-    readyToMove = params.readyToMove;
   }
 
   return (
     <button
       onClick={onClick}
-      className={`square ${color} ${clicked ? "clicked" : ""} ${
-        readyToMove ? "ready-to-move" : ""
-      } ${squareColor}`}
+      className={`square ${color} ${clicked ? "clicked" : ""} ${squareColor}`}
     >
       <div>{color ? "O" : ""}</div>
     </button>

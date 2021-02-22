@@ -1,0 +1,30 @@
+body {
+  margin-top: 0;
+}
+.game-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  width: 70%;
+}
+h3 {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 2px;
+}
+
+.game-and-history {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin-left: 5px;
+}
