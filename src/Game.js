@@ -38,6 +38,12 @@ const Game = () => {
   const [currentMove, setCurrentMove] = useState(0); // how many move have been palyed to the current play (if we undo a move then its count is dropped by 1)
   const [history, setHistory] = useState([]); //history of game states
   const [lastMovesHistory, setLastMovesHistory] = useState([]); //written history of move (qho played and from where to where)
+  const pawnsForEachPlayer =
+    boardSize % 2 === 0 ? (boardSize / 2) * 3 : ((boardSize + 1) / 2) * 3 - 1;
+  const [pawnsLeftToEat, setPawnsLeftToEat] = useState({
+    red: pawnsForEachPlayer,
+    white: pawnsForEachPlayer,
+  }); //history of game states
 
   useEffect(() => {
     const newHistory = [...history];
@@ -327,15 +333,19 @@ const Game = () => {
   return (
     <div className='game-and-history'>
       <div className='game-area'>
-        <h3>{`${redIsNext ? "red" : "white"} is next`}</h3>
-        <Board
-          squares={squares}
-          squareClickHandler={squareClickHandler}
-          boardSize={boardSize}
-        />
-        <button onClick={undoHandler}>Undo</button>
-        <button onClick={redoHandler}>Redo</button>
-        <button onClick={restHandler}>Reset</button>
+        <div className='board'>
+          <h2>{`${redIsNext ? "red" : "white"} is next`}</h2>
+          <Board
+            squares={squares}
+            squareClickHandler={squareClickHandler}
+            boardSize={boardSize}
+          />
+          <div className='buttons'>
+            <button onClick={undoHandler}>Undo</button>
+            <button onClick={redoHandler}>Redo</button>
+            <button onClick={restHandler}>Reset</button>
+          </div>
+        </div>
       </div>
       <div className='history'>
         <h3>last 10 moves</h3>

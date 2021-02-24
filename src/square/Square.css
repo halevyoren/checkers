@@ -10,6 +10,13 @@
   color: rgba(0, 0, 0, 0);
   transition: ease-in-out 0.5s;
 }
+@media (max-width: 500px) {
+  .square {
+    height: 10px;
+    width: 8px;
+    font-size: 6px;
+  }
+}
 
 .blackSquare {
   background: rgb(82, 204, 88);

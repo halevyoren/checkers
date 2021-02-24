@@ -1,17 +1,27 @@
 body {
   margin-top: 0;
+  background: linear-gradient(45deg, rgb(123, 66, 255), transparent);
+  height: 100vh;
 }
 .game-area {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: end;
-  align-items: center;
+  /* justify-content: center; */
+  align-items: flex-end;
   width: 70%;
 }
-h3 {
+
+h2 {
   margin-top: 0;
   padding-top: 0;
   margin-bottom: 2px;
+}
+.board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-and-history {
@@ -27,4 +37,36 @@ h3 {
   align-items: center;
   width: 40%;
   margin-left: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 500px) {
+  .history {
+    width: 40%;
+    margin-left: 2px;
+  }
+  .history.h3 {
+    font-size: 1rem;
+  }
+  .buttons {
+    margin-top: 2vh;
+  }
+  .buttons button {
+    margin-right: 2vh;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+}
+.buttons button {
+  margin-top: 4px;
+  margin-right: 2vh;
+  font-size: 9px;
+  font-weight: bold;
+}
+.buttons button:last-child {
+  margin-right: 0;
 }
