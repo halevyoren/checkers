@@ -9,7 +9,6 @@ body {
   flex-direction: column;
   /* justify-content: center; */
   align-items: flex-end;
-  width: 70%;
 }
 
 h2 {
@@ -43,17 +42,19 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2vh;
 }
 @media (min-width: 500px) {
+  .game-area {
+    width: 70%;
+  }
   .history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 40%;
-    margin-left: 2px;
-  }
-  .history.h3 {
-    font-size: 1rem;
-  }
-  .buttons {
-    margin-top: 2vh;
+    margin-left: 5px;
   }
   .buttons button {
     margin-right: 2vh;
@@ -61,10 +62,14 @@ h2 {
     font-weight: bold;
   }
 }
+@media (max-width: 500px) {
+  .game-and-history {
+    flex-direction: column;
+  }
+}
+
 .buttons button {
-  margin-top: 4px;
   margin-right: 2vh;
-  font-size: 9px;
   font-weight: bold;
 }
 .buttons button:last-child {

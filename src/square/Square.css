@@ -12,9 +12,9 @@
 }
 @media (max-width: 500px) {
   .square {
-    height: 10px;
-    width: 8px;
-    font-size: 6px;
+    height: 15px;
+    width: 15px;
+    font-size: 12px;
   }
 }
 
