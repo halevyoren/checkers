@@ -38,12 +38,6 @@ const Game = () => {
   const [currentMove, setCurrentMove] = useState(0); // how many move have been palyed to the current play (if we undo a move then its count is dropped by 1)
   const [history, setHistory] = useState([]); //history of game states
   const [lastMovesHistory, setLastMovesHistory] = useState([]); //written history of move (qho played and from where to where)
-  const pawnsForEachPlayer =
-    boardSize % 2 === 0 ? (boardSize / 2) * 3 : ((boardSize + 1) / 2) * 3 - 1;
-  const [pawnsLeftToEat, setPawnsLeftToEat] = useState({
-    red: pawnsForEachPlayer,
-    white: pawnsForEachPlayer,
-  }); //history of game states
 
   useEffect(() => {
     const newHistory = [...history];
@@ -330,11 +324,38 @@ const Game = () => {
     return printHistory;
   };
 
+  const findWinner = () => {
+    let redPawns = 0;
+    let whitePawns = 0;
+    const fullBoardSize = boardSize * boardSize;
+    for (
+      var squareIndex = 0;
+      squareIndex < fullBoardSize;
+      squareIndex = squareIndex + 1
+    ) {
+      if (squares[squareIndex]) {
+        if (squares[squareIndex].pawnColor === "red") {
+          redPawns += 1;
+          continue;
+        }
+        if (squares[squareIndex].pawnColor === "white") {
+          whitePawns += 1;
+          continue;
+        }
+      }
+    }
+    if (redPawns === 0) return "White Player Wins!!!";
+    if (whitePawns === 0) return "Red Player Wins!!!";
+    return `${redIsNext ? "red" : "white"} is next`;
+  };
+
+  const title = findWinner();
+
   return (
     <div className='game-and-history'>
       <div className='game-area'>
         <div className='board'>
-          <h2>{`${redIsNext ? "red" : "white"} is next`}</h2>
+          <h2>{title}</h2>
           <Board
             squares={squares}
             squareClickHandler={squareClickHandler}
